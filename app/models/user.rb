@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
+  has_many :user_rooms
+  has_many :chats
+  has_many :rooms, through: :user_rooms
+
   has_one_attached :profile_image
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
@@ -26,12 +30,12 @@ class User < ApplicationRecord
   end
 
   #フォロー機能
-  def follow(user_id)
-    relationships.create(followed_id: user_id)
+  def follow(user)
+    relationships.create(followed_id: user.id)
   end
 
-  def unfollow(user_id)
-    relationships.find_by(followed_id: user_id).destroy
+  def unfollow(user)
+    relationships.find_by(followed_id: user.id).destroy
   end
 
   # フォローしているかどうか
