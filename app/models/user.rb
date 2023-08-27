@@ -25,6 +25,7 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
 
+  #フォロー機能
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
@@ -38,6 +39,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  #検索用
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("name LIKE?", "#{word}")
