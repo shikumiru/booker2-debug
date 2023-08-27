@@ -11,7 +11,7 @@
   		<table class='table'>
   		  <tr>
           <td><%= link_to(@book.user) do %>
-            <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
+            <%= image_tag @book.user.get_profile_image, size:"50x50" %><br>
             <%= @book.user.name %>
             <% end %>
           </td>
@@ -20,6 +20,7 @@
           <td id="favorite_btn_<%= @book.id %>">
             <%= render "favorites/btn", book: @book %>
           </td>
+          <td>コメント数：<span id="comment_count"><%= @book.book_comments.count %></span></td>
           <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
@@ -27,8 +28,12 @@
         </tr>
       </table>
 
-      <%= render "book_comments/index", book: @book %>
-      <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+      <div id="book-comments">
+        <%= render "book_comments/index", book: @book %>
+      </div>
+      <div id="comment-form">
+        <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+      </div>
 
     </div>
   </div>
