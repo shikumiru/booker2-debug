@@ -10,9 +10,7 @@
   <% end %>
 </div>
 
-<div class="errors">
-  <%= render "layouts/errors", obj: @chat %>
-</div>
+<div class="errors"></div>
 
 <%= form_with model: @chat, local: false do |f| %>
   <%= f.text_field :chat %>
