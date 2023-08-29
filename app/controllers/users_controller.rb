@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = @user.books
-    @today_book = @books.created_today
-    @yesterday_book = @books.created_yesterday
+    @today_book = @books.created_days_ago(0)
+    @yesterday_book = @books.created_days_ago(1)
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
   end

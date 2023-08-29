@@ -7,6 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.0",
     "bootstrap": "4.6.2",
+    "chart.js": "^4.4.0",
     "jquery": "^3.7.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0",
@@ -16,5 +17,24 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shikumiru/booker2-debug.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shikumiru/booker2-debug/issues"
+  },
+  "homepage": "https://github.com/shikumiru/booker2-debug#readme"
 }
