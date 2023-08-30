@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "search" => 'searches#search'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -21,4 +20,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :chats, only: [:show, :create]
+
+  # User/Book 検索用
+  get "search" => 'searches#search'
+
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
 end
