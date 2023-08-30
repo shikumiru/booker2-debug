@@ -24,7 +24,7 @@ class User < ApplicationRecord
   # 閲覧数
   has_many :view_counts, dependent: :destroy
 
-  # グループ
+  # グループ機能
   has_many :group_users, dependent: :destroy
 
   has_one_attached :profile_image

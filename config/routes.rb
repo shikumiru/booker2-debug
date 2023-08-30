@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   # User/Book 検索用
   get "search" => 'searches#search'
 
-  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
+    resource :group_users, ionly: [:create, :destroy]
+  end
 end
