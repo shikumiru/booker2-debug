@@ -18,9 +18,17 @@ class BooksController < ApplicationController
       # b.favorites.where(created_at: from...to).size <=>
       # a.favorites.where(created_at: from...to).size
     # }
-    @booksort = Book.includes(:favorites).
-      sort_by {|x| x.favorites.size}.reverse
-    @books = Book.all
+    # @booksort = Book.includes(:favorites).
+      # sort_by {|x| x.favorites.size}.reverse
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:old]
+      @books = Book.old
+    elsif params[:star_count]
+      @books = Book.star_count
+    else
+      @books = Book.all
+    end
   end
 
   def create

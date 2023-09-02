@@ -9,7 +9,12 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <%= render 'index', books: @booksort %>
+      <p>
+        <%= link_to '新しい順', books_path(latest: "true") %>
+        |<%= link_to '古い順', books_path(old: "true") %>
+        |<%= link_to '評価の高い順', books_path(star_count: "true") %>
+      </p>
+      <%= render 'index', books: @books %>
 
       <h4>7日間分の投稿数</h4>
         <table class="table table-bordered">
