@@ -4,7 +4,10 @@
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
-      <th colspan="3"></th>
+      <th><!--いいね数--></th>
+      <th><!--コメント数--></th>
+      <th><!--閲覧数--></th>
+      <th><!--星評価--></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +24,7 @@
         </td>
         <td>コメント数：<span id="comment_count"><%= book.book_comments.count %></span></td>
         <td>閲覧数：<%= book.view_counts.count %></td>
+        <td><%= render "static.rate", book: book %></td>
       </tr>
     <% end %>
   </tbody>
