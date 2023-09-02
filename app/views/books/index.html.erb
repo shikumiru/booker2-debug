@@ -9,7 +9,7 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <%= render 'index', books: @books%>
+      <%= render 'index', books: @booksort %>
 
       <h4>7日間分の投稿数</h4>
         <table class="table table-bordered">
@@ -26,13 +26,13 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @bookall.created_days_ago(6).count %></td>
-              <td><%= @bookall.created_days_ago(5).count %></td>
-              <td><%= @bookall.created_days_ago(4).count %></td>
-              <td><%= @bookall.created_days_ago(3).count %></td>
-              <td><%= @bookall.created_days_ago(2).count %></td>
-              <td><%= @bookall.created_days_ago(1).count %></td>
-              <td><%= @bookall.created_days_ago(0).count %></td>
+              <td><%= @books.created_days_ago(6).count %></td>
+              <td><%= @books.created_days_ago(5).count %></td>
+              <td><%= @books.created_days_ago(4).count %></td>
+              <td><%= @books.created_days_ago(3).count %></td>
+              <td><%= @books.created_days_ago(2).count %></td>
+              <td><%= @books.created_days_ago(1).count %></td>
+              <td><%= @books.created_days_ago(0).count %></td>
             </tr>
           </tbody>
         </table>
@@ -49,7 +49,7 @@
               datasets: [
                 {
                   label: '投稿した本の数',
-                  data: <%= @bookall.past_week_count %>,
+                  data: <%= @books.past_week_count %>,
                   borderColor: 'rgba(0,0,255,1)',
                   backgroundColor: 'rgba(0,0,0,0)'
                 }
