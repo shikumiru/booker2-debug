@@ -29,4 +29,6 @@ Rails.application.routes.draw do
     resources :event_notices, only: [:new, :create]
     get "event_notices" => "event_notices#sent"
   end
+
+  get 'tagsearches/search', to: 'tagsearches#search'
 end

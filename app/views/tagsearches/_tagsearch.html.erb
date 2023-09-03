@@ -1,0 +1,6 @@
+<div class="serch_form mx-2">
+  <%= form_with url: tagsearches_search_path, method: :get do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit 'タグ検索' %>
+  <% end %>
+</div>
