@@ -20,15 +20,7 @@ class BooksController < ApplicationController
     # }
     # @booksort = Book.includes(:favorites).
       # sort_by {|x| x.favorites.size}.reverse
-    if params[:latest]
-      @books = Book.latest
-    elsif params[:old]
-      @books = Book.old
-    elsif params[:star_count]
-      @books = Book.star_count
-    else
-      @books = Book.all
-    end
+    @books = Book.all.order(params[:sort])
   end
 
   def create
