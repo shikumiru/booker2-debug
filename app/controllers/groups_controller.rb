@@ -6,6 +6,19 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def index
+    @book = Book.new
+    @groups = Group.all
+  end
+
+  def show
+    @book = Book.new
+    @group = Group.find(params[:id])
+  end
+
+  def edit
+  end
+
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
@@ -14,22 +27,6 @@ class GroupsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def index
-    @book = Book.new
-    @user = User.find(current_user.id)
-    @groups = Group.all
-  end
-
-  def show
-    @book = Book.new
-    @user = User.find(current_user.id)
-    @group = Group.find(params[:id])
-  end
-
-  def edit
-    @group = Group.find(params[:id])
   end
 
   def update
