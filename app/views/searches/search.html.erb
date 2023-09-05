@@ -1,7 +1,7 @@
-<% if @range == "User" %>
+<% if @model == "User" %>
   <h3>Users search for "<%= @word %>"</h3>
   <%= render 'users/index', users: @users %>
-<% elsif @range == "Book" %>
-  <h3>Books search for "<%= @content %>"</h3>
+<% elsif @model == "Book" %>
+  <h3>Books search for "<%= @word %>"</h3>
   <%= render 'books/index', books: @books %>
 <% end %>

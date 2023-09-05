@@ -7,7 +7,6 @@ class Book < ApplicationRecord
 
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
-  validates :category, presence: true
 
   # いいね機能
   def favorited_by?(user)
@@ -16,13 +15,13 @@ class Book < ApplicationRecord
 
   # 検索機能
   def self.looks(search, word)
-    if search == "perfect_match"
+    if search == "perfect"
       @book = Book.where("title LIKE?", "#{word}")
-    elsif search == "forward_match"
+    elsif search == "forward"
       @book = Book.where("title LIKE?", "#{word}%")
-    elsif search == "backward_match"
+    elsif search == "backward"
       @book = Book.where("title LIKE?", "%#{word}")
-    elsif search == "partial_match"
+    elsif search == "partial"
       @book = Book.where("title LIKE?", "%#{word}%")
     else
       @book = Book.all
